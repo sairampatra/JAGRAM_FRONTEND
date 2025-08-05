@@ -173,7 +173,7 @@ toast.success(response?.message)
           </Avatar>
           <div className="flex items-center gap-3">
             <h1>{post?.author?.username}</h1>
-            {user?._id === post?.author?._id && <Badge variant="secondry">jagan</Badge>}
+            {user?._id === post?.author?._id && <Badge variant="secondry">Author</Badge>}
             
           </div>
         </div>

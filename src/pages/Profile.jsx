@@ -9,10 +9,11 @@ import { AtSign, Heart, MessageCircle } from "lucide-react";
 import followUnfollow from "../hooks/followUnfollow";
 import { setAuthUser } from "../redux/slices/authSlice";
 import { toast } from "sonner";
+import SkeletonProfile from "../skeletonLoders/SkeletonProfile.jsx";
 function Profile() {
 
   const param = useParams();
-  const { userProfile, user } = useSelector((state) => state.auth);
+  const { userProfile, user ,isProfileLoading } = useSelector((state) => state.auth);
   useGetUserProfile(param.id);
   const isLoggedinUserProfile = user?._id === userProfile?._id;
   const isFollowing = user?.following?.includes(userProfile?._id);
@@ -51,7 +52,9 @@ function Profile() {
         )
       }
     }
-
+if (isProfileLoading) {
+  return <SkeletonProfile/>
+}
   return (
     <div className="flex max-w-4xl justify-center mx-auto pl-10 ">
       <div className="flex flex-col gap-20 p-8">

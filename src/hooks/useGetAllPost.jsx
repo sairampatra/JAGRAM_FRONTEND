@@ -1,10 +1,11 @@
 import { useDispatch } from "react-redux";
 import { axiosInstance } from "../utils/axiosInstance";
 import { useEffect } from "react";
-import { setPosts } from "../redux/slices/postSlice";
+import { setPosts , setIsPostsLoading } from "../redux/slices/postSlice";
 import { toast } from "sonner";
 export const fetchAllPost = async (dispatch) => {
   try {
+    dispatch(setIsPostsLoading(true))
     const response = await axiosInstance.get("/v1/post/getAllPost" , {withCredentials:true});
     // console.log(response);
     if (response?.data?.success) {
@@ -16,6 +17,8 @@ export const fetchAllPost = async (dispatch) => {
     toast.error(
       error?.response?.data?.message || error?.message || "something went wrong"
     );
+  }finally{
+        dispatch(setIsPostsLoading(false))
   }
 };
 const useGetAllPost = () => {

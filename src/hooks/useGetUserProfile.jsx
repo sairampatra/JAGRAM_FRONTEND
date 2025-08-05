@@ -1,12 +1,13 @@
 import { useDispatch } from "react-redux";
 import { axiosInstance } from "../utils/axiosInstance";
 import { useEffect } from "react";
-import { setUserProfile } from "../redux/slices/authSlice";
+import { setIsProfileLoading, setUserProfile } from "../redux/slices/authSlice";
 import { toast } from "sonner";
 export const fetchUserProfile = async (dispatch,userId) => {
   try {
+    dispatch(setIsProfileLoading(true))
     const response = await axiosInstance.get(`/v1/user/${userId}/profile` , {withCredentials:true});
-    console.log(response)
+
     if (response?.data?.success) {
       dispatch(setUserProfile(response?.data?.user));
     }
@@ -15,6 +16,8 @@ export const fetchUserProfile = async (dispatch,userId) => {
     toast.error(
       error?.response?.data?.message || error?.message || "something went wrong"
     );
+  }finally{
+        dispatch(setIsProfileLoading(false))
   }
 };
 const useGetUserProfile = (userId) => {
