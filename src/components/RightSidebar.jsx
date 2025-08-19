@@ -15,7 +15,7 @@ function RightSidebar() {
     }
   
   return (
-    <div className=" w-[24%] my-10 pr-7 font-fredoka ">
+    <div className=" w-[24%] my-10 pr-7 font-fredoka hidden lg:block">
       <div className="flex items-center gap-2">
         <Link to={`/profile/${user?._id}`}>
           <Avatar className="w-9 h-9">

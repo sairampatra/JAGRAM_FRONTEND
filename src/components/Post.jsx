@@ -164,8 +164,8 @@ toast.success(response?.message)
     }
   }
   return (
-    <div className="my-8 w-full max-w-sm mx-auto ">
-      <div className="flex items-center justify-between">
+    <div className="mb-8  md:my-8 w-full max-w-md mx-auto  max-[484px]:max-w-none ">
+      <div className="flex items-center justify-between  max-[484px]:px-3">
         <div className="flex items-center gap-2">
           <Avatar className="w-7 h-7">
             <AvatarImage src={post?.author?.profilePicture} />
@@ -224,7 +224,7 @@ toast.success(response?.message)
         src={post?.image}
         alt=""
       />
-      <div className="flex items-center justify-between my-2">
+      <div className="flex items-center justify-between my-2 max-[484px]:px-3">
         {/* {console.log(post?.likes.includes(user?._id))} */}
         <div className="flex items-center gap-3">
           {liked ? (
@@ -249,12 +249,12 @@ toast.success(response?.message)
         </div>
         <Bookmark onClick={()=>bookmarkHandler(post?._id)} className="cursor-pointer hover:text-gray-600" />
       </div>
-      <span className="font-medium block mb-2">{`${likeCount} likes`}</span>
+      <span className="max-[484px]:px-3 font-medium block mb-2">{`${likeCount} likes`}</span>
       <p>
-        <span className="font-medium mr-2">{post?.author?.username}</span>
+        <span className="max-[484px]:px-3 font-medium mr-2">{post?.author?.username}</span>
         {post.caption}
       </p>
-      <span onClick={() => setDilogbox(true)} className="text-gray-500">
+      <span onClick={() => setDilogbox(true)} className="max-[484px]:px-3 text-gray-500">
         {post?.comments?.length > 0
           ? `view all ${comments?.length} comments `
           : null}
@@ -266,11 +266,11 @@ toast.success(response?.message)
           value={text}
           onChange={changeEventHandler}
           placeholder="write a commet"
-          className="outline-0 text-sm w-full"
+          className="max-[484px]:px-3 outline-0 text-sm w-full"
         />
         {text && (
           <span
-            className=" text-[#3BADF8] cursor-pointer"
+            className="max-[484px]:px-3 text-[#3BADF8] cursor-pointer"
             onClick={() => commentHandler(post?._id)}
           >
             post

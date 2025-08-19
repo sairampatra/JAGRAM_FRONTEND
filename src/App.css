@@ -40,3 +40,11 @@
 .read-the-docs {
   color: #888;
 }
+
+
+@media(max-width:490px){
+  .icon{
+    width:10px;
+    color:black
+  }
+}

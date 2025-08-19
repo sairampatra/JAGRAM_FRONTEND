@@ -125,3 +125,17 @@
     @apply bg-background text-foreground;
   }
 }
+
+@media(max-width:490px){
+  .leftBarBody{
+   padding: 10px  9px;
+  }
+  .logo{
+    display: none;
+  }
+}
+@media(max-width:484){
+  .postBody{
+     max-width: none !important;
+  }
+}

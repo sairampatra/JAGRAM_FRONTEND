@@ -28,6 +28,7 @@ function EditProfile() {
     gender: user?.gender,
   });
   const [loading , setLoading] = useState(false)
+
   const editProfileHandler = async () => {
     const formData = new FormData()
     formData.append('bio',input?.bio)
@@ -55,6 +56,7 @@ navigate(`/profile/${user?._id}`)
     }
     setLoading(false)
   }
+  
   const fileChangeHandler = (e) => {
     const file = e.target.files?.[0];
     if (file) setInput({ ...input, profilePicture: file });

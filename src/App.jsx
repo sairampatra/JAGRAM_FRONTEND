@@ -9,7 +9,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <Routing />
       <Toaster/>
-      <ReactQueryDevtools initialIsOpen={false} />
+      {/* <ReactQueryDevtools initialIsOpen={false} /> */}
     </QueryClientProvider>
   );
 }

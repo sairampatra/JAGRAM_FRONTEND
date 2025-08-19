@@ -68,6 +68,7 @@ function CommentDialog({ post, dilogbox, setDilogbox }) {
       toast.success(response.message);
       const allCommentsOfPost = await getComments(postId);
       if (allCommentsOfPost.success) {
+        console.log(allCommentsOfPost.nestedComments)
         dispatch(setNestedComments(allCommentsOfPost.nestedComments));
       } else {
         toast.error(
@@ -142,7 +143,7 @@ function CommentDialog({ post, dilogbox, setDilogbox }) {
         open={dilogbox}
         onOpenChange={(open) => {
           if (!open) {
-            console.log("Dialog closed, clearing comments...");
+            // console.log("Dialog closed, clearing comments...");
 
             setDilogbox(false);
             dispatch(setNestedComments([]));
@@ -154,18 +155,18 @@ function CommentDialog({ post, dilogbox, setDilogbox }) {
           <DialogDescription>This is a preview of your image</DialogDescription>
         </VisuallyHidden>
         <DialogContent
-          className="sm:min-w-[70vw] sm:max-w-[70vw] h-[70vh] max-h-[70vh] p-0 flex flex-col"
+          className="sm:min-w-[70vw] sm:max-w-[70vw] md:h-[70vh] h-[80vh] md:max-h-[70vh] p-0 flex flex-col "
           // onInteractOutside={whenInteractOutside }
         >
           <div className="flex h-full">
-            <div className="w-1/2 h-full">
+            <div className="w-1/2 h-full hidden sm:block ">
               <img
                 className="rounded-l-lg h-full w-full object-cover"
                 src={post?.image}
                 alt=""
               />
             </div>
-            <div className="w-1/2 h-full flex flex-col">
+            <div className="w-full sm:w-1/2 h-full flex flex-col ">
               {/* Header - Fixed height */}
               <div className="flex items-center justify-between p-4 flex-shrink-0 border-b">
                 <div className="flex gap-3 items-center">
