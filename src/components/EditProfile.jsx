@@ -65,7 +65,7 @@ navigate(`/profile/${user?._id}`)
     setInput({ ...input, gender: val });
   };
   return (
-    <div className="flex max-w-2xl mx-auto pl-10 ">
+    <div className="flex max-w-2xl mx-auto px-7  border-red-700">
       <div className="flex flex-col gap-6 w-full my-8">
         <h1 className="font-bold text-xl"> Edit Profile</h1>
         <div className="flex items-center justify-between bg-gray-100 rounded-xl p-4">
