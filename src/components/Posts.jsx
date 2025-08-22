@@ -16,7 +16,7 @@ function Posts() {
     )
   }
   return (
-    <div >
+    <div  >
         {posts.map((post)=><Post key={post?._id}  post={post}/>)}
     </div>
     

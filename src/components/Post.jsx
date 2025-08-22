@@ -164,7 +164,7 @@ toast.success(response?.message)
     }
   }
   return (
-    <div className="mb-8  md:my-8 w-full max-w-md mx-auto  max-[484px]:max-w-none ">
+    <div className="mb-8  lg:my-8 my-3 w-full max-w-md mx-auto  max-[484px]:max-w-none ">
       <div className="flex items-center justify-between  max-[484px]:px-3">
         <div className="flex items-center gap-2">
           <Avatar className="w-7 h-7">

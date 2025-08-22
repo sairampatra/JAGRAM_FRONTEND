@@ -40,31 +40,31 @@ function SuggestedUsers() {
   }
 
   return (
-    <div className='my-5'>
-      <div className='flex items-center justify-between text-sm gap-4'>
+    <div className='lg:my-5 h-24 lg:h-auto hide-scrollbar overflow-auto flex lg:block gap-4 lg:gap-0 px-1'>
+      <div className=' items-center justify-between text-sm gap-4 hidden lg:flex'>
         <h1 className=' text-gray-600'>Suggested for you</h1>
         <span className=' cursor-pointer'>See All</span>
       </div>
       {
         suggestedUsers.map((user) => (
-          <div key={user._id} className='flex items-center justify-between my-5 gap-3'>
-            <div className='flex items-center gap-2 max-w-[80%] '>
+          <div key={user._id} className='flex items-center justify-center lg:justify-between my-5 gap-3  min-w-12'>
+            <div className='flex items-center gap-2 max-w-[80%] flex-col lg:flex-row'>
               <Link to={`/profile/${user?._id}`}>
-                <Avatar>
+                <Avatar className="w-12 h-12 border">
                   <AvatarImage src={user?.profilePicture} alt="post_image" />
                   <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
               </Link>
               <div>
-                <h1 className='font-medium text-sm truncate max-w-[120px]'>
+                <h1 className='font-medium text-sm truncate lg:max-w-[120px] max-w-12 '>
                   <Link to={`/profile/${user?._id}`}>{user?.username}</Link>
                 </h1>
-                <span className='text-gray-600 text-sm'>{user?.bio || "Bio here..."}</span>
+                <span className='text-gray-600 text-sm hidden lg:block'>{user?.bio || "Bio here..."}</span>
               </div>
             </div>
 
             <span
-              className='text-[#3BADF8] text-xs font-bold cursor-pointer hover:text-[#3495d6]'
+              className='text-[#3BADF8] text-xs font-bold cursor-pointer hover:text-[#3495d6] hidden lg:block' 
               onClick={() => handleFollowUnfollow(user?._id)}
             >
               {loggedInUser?.following?.includes(user?._id) ? "Unfollow" : "Follow"}

@@ -15,8 +15,8 @@ function RightSidebar() {
     }
   
   return (
-    <div className=" w-[24%] my-10 pr-7 font-fredoka hidden lg:block">
-      <div className="flex items-center gap-2">
+    <div className="px-2 md:pl-[9%] lg:pl-0 w-full lg:p-2 lg:w-[24%] lg:my-10 pt-3 lg:pr-7 font-fredoka  lg:block bg-[#fcfbfb] lg:bg-transparent">
+      <div className="lg:flex items-center gap-2 hidden ">
         <Link to={`/profile/${user?._id}`}>
           <Avatar className="w-9 h-9">
             <AvatarImage
@@ -35,6 +35,8 @@ function RightSidebar() {
           <span className="text-gray-600 text-sm"> {user?.bio|| "Bio here..."}</span>
         </div>
       </div>
+              <h1 className=' text-gray-600 lg:hidden mx-2'>Suggested for you</h1>
+
       <SuggestedUsers/>
     </div>
   );

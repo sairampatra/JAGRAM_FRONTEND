@@ -17,7 +17,7 @@ function Home() {
 //   checkToken();
 //   },)
   return (
-    <div className="flex ">
+    <div className="flex flex-col-reverse lg:flex-row">
       <div className="flex-grow ">
         <Feed />
         <Outlet />
